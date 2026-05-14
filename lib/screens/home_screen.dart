@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
@@ -406,7 +407,7 @@ class _HomeScreenState extends State<HomeScreen>
               ),
             ),
             Transform.translate(
-              offset: const Offset(0, -70),
+              offset: const Offset(0, -50),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -417,7 +418,7 @@ class _HomeScreenState extends State<HomeScreen>
                       children: [
                         _buildQuickActionCard(
                           icon: Icons.explore,
-                          title: 'Locate',
+                          title: 'Find',
                           subtitle: 'Qibla',
                         ),
                         const SizedBox(width: 10),
@@ -474,7 +475,7 @@ class _HomeScreenState extends State<HomeScreen>
         children: _prayerTimings.map((timing) {
           final active = currentPrayer?.name == timing.name;
           return Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.only(right: 6),
             child: _PrayerTimeCard(timing: timing, active: active),
           );
         }).toList(),
@@ -755,37 +756,49 @@ class _PrayerTimeCard extends StatelessWidget {
         color: active ? Colors.white : Colors.white.withAlpha(31),
         borderRadius: BorderRadius.circular(18),
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            timing.name,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: active ? _homeHeaderColor : Colors.white,
-              fontWeight: FontWeight.w700,
-            ),
-            textAlign: TextAlign.center,
+      child: active
+          ? ClipRRect(
+              borderRadius: BorderRadius.circular(18),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+                child: _buildCardContent(context),
+              ),
+            )
+          : _buildCardContent(context),
+    );
+  }
+
+  Widget _buildCardContent(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          timing.name,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            color: active ? _homeHeaderColor : Colors.white,
+            fontWeight: FontWeight.w700,
           ),
-          const SizedBox(height: 8),
-          Container(
-            width: 36,
-            height: 36,
-            decoration: BoxDecoration(
-              color: active ? _homeHeaderColor : Colors.white.withAlpha(46),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Icon(timing.iconData, color: Colors.white, size: 20),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 8),
+        Container(
+          width: 36,
+          height: 36,
+          decoration: BoxDecoration(
+            color: active ? _homeHeaderColor : Colors.white.withAlpha(46),
+            borderRadius: BorderRadius.circular(12),
           ),
-          const SizedBox(height: 4),
-          Text(
-            timing.displayTime,
-            style: Theme.of(
-              context,
-            ).textTheme.bodySmall?.copyWith(color: Colors.white),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+          child: Icon(timing.iconData, color: Colors.white, size: 20),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          timing.displayTime,
+          style: Theme.of(
+            context,
+          ).textTheme.bodySmall?.copyWith(color: Colors.white),
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 }
