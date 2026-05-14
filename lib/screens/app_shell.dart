@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:muslim_mate/constants/index.dart';
+import 'package:muslim_mate/features/home/presentation/screens/home_screen.dart';
+import 'package:muslim_mate/features/home/presentation/widgets/home_bottom_navigation.dart';
 import 'package:muslim_mate/screens/discover_screen.dart';
-import 'package:muslim_mate/screens/home_screen.dart';
 import 'package:muslim_mate/screens/prayer_screen.dart';
 import 'package:muslim_mate/screens/profile_screen.dart';
 import 'package:muslim_mate/screens/quran_screen.dart';
@@ -24,34 +24,6 @@ class _AppShellState extends State<AppShell> {
     ProfileScreen(),
   ];
 
-  static const List<BottomNavigationBarItem> _navigationItems = <BottomNavigationBarItem>[
-    BottomNavigationBarItem(
-      icon: Icon(Icons.home_outlined),
-      activeIcon: Icon(Icons.home),
-      label: 'Home',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.explore_outlined),
-      activeIcon: Icon(Icons.explore),
-      label: 'Discover',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.book_outlined),
-      activeIcon: Icon(Icons.book),
-      label: 'Quran',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.access_time_outlined),
-      activeIcon: Icon(Icons.access_time),
-      label: 'Prayer',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.person_outline),
-      activeIcon: Icon(Icons.person),
-      label: 'Profile',
-    ),
-  ];
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -64,13 +36,8 @@ class _AppShellState extends State<AppShell> {
       body: SafeArea(
         child: _pages[_selectedIndex],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: _navigationItems,
+      bottomNavigationBar: HomeBottomNavigation(
         currentIndex: _selectedIndex,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.greyDark,
-        backgroundColor: AppColors.surface,
-        type: BottomNavigationBarType.fixed,
         onTap: _onItemTapped,
       ),
     );
