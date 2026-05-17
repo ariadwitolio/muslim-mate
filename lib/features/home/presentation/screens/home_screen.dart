@@ -507,7 +507,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     Row(
                       children: const [
                         HomeShortcutActionCard(
-                          title: 'Locate',
+                          title: 'Find',
                           subtitle: 'Qibla',
                           icon: Icons.explore,
                         ),
