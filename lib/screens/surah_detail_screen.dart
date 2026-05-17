@@ -332,10 +332,15 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: false,
       backgroundColor: _kSurface,
       appBar: AppBar(
         backgroundColor: _kSurface,
         elevation: 0,
+        surfaceTintColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        scrolledUnderElevation: 0,
+        toolbarOpacity: 1.0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new, color: _kTextSecondary),
           onPressed: Navigator.of(context).pop,
@@ -343,14 +348,8 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
         titleSpacing: 0,
         title: _buildAppBarSearchField(),
         actions: [
-          _buildAppBarIcon(Icons.tune, onTap: () {}),
-          _buildAppBarIcon(Icons.settings, onTap: () {}),
-          _buildAppBarIcon(
-            _isCurrentLocationBookmarked
-                ? Icons.bookmark
-                : Icons.bookmark_border,
-            onTap: _bookmarkCurrentAyah,
-          ),
+          _buildAppBarIcon(Icons.tune, onTap: () {}, bordered: false),
+          _buildAppBarIcon(Icons.settings, onTap: () {}, bordered: false),
           const SizedBox(width: 8),
         ],
       ),
@@ -376,7 +375,8 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
         _lastRead!.ayat == _selectedAyah;
   }
 
-  Widget _buildAppBarIcon(IconData icon, {required VoidCallback onTap}) {
+  Widget _buildAppBarIcon(IconData icon,
+      {required VoidCallback onTap, bool bordered = true}) {
     return Padding(
       padding: const EdgeInsets.only(left: 8, right: 4),
       child: InkWell(
@@ -388,7 +388,7 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
           decoration: BoxDecoration(
             color: _kSurface,
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: _kBorder),
+            border: bordered ? Border.all(color: _kBorder) : null,
           ),
           alignment: Alignment.center,
           child: Icon(icon, size: 20, color: _kTextSecondary),

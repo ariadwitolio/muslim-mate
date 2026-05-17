@@ -182,19 +182,6 @@ class _QuranScreenState extends State<QuranScreen> {
   Widget _buildSearchRow() {
     return Row(
       children: [
-        Container(
-          width: 56,
-          height: 56,
-          decoration: BoxDecoration(
-            color: _kSectionBackground,
-            borderRadius: BorderRadius.circular(18),
-          ),
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.bookmark_border, color: _kTabSelected, size: 24),
-          ),
-        ),
-        const SizedBox(width: 12),
         Expanded(child: _buildSearchBar()),
       ],
     );
@@ -203,16 +190,21 @@ class _QuranScreenState extends State<QuranScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: false,
       backgroundColor: _kBackground,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: _kBackground,
         elevation: 0,
+        surfaceTintColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        scrolledUnderElevation: 0,
+        toolbarOpacity: 1.0,
         centerTitle: false,
         titleSpacing: 20,
-        toolbarHeight: 72,
+        toolbarHeight: 64,
         title: Padding(
-          padding: const EdgeInsets.only(top: 8),
+          padding: const EdgeInsets.only(top: 4),
           child: Text(
             'Al Quran',
             style: _jakarta(
@@ -230,13 +222,13 @@ class _QuranScreenState extends State<QuranScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
           child: Column(
             children: [
               _buildSearchRow(),
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
               _buildTabBar(),
-              const SizedBox(height: 18),
+              const SizedBox(height: 10),
               Expanded(child: _buildTabContent()),
             ],
           ),
