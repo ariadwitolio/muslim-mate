@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:muslim_mate/core/theme/app_colors.dart';
 import 'package:muslim_mate/core/theme/app_text_styles.dart';
 
@@ -166,7 +167,7 @@ class _ActivityCard extends StatelessWidget {
           ),
           const SizedBox(width: 12),
           Icon(
-            Icons.circle_outlined,
+            Iconsax.arrange_circle,
             size: 28,
             color: HomeColors.onSurfaceSecondary,
           ),

@@ -12,7 +12,7 @@ class AppTheme {
       surface: AppColors.surface,
       error: AppColors.error,
     ),
-    textTheme: GoogleFonts.poppinsTextTheme(
+    textTheme: GoogleFonts.plusJakartaSansTextTheme(
       ThemeData.light().textTheme,
     ),
     appBarTheme: AppBarTheme(
@@ -20,7 +20,7 @@ class AppTheme {
       foregroundColor: AppColors.white,
       elevation: 0,
       centerTitle: false,
-      titleTextStyle: GoogleFonts.poppins(
+      titleTextStyle: GoogleFonts.plusJakartaSans(
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: AppColors.white,
@@ -63,7 +63,7 @@ class AppTheme {
       surface: AppColors.greyDark,
       error: AppColors.error,
     ),
-    textTheme: GoogleFonts.poppinsTextTheme(
+    textTheme: GoogleFonts.plusJakartaSansTextTheme(
       ThemeData.dark().textTheme,
     ),
   );

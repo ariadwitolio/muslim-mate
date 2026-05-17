@@ -1,28 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:muslim_mate/features/home/presentation/screens/home_screen.dart';
 import 'package:muslim_mate/features/home/presentation/widgets/home_bottom_navigation.dart';
-import 'package:muslim_mate/screens/discover_screen.dart';
+import 'package:muslim_mate/screens/almatsurat_screen.dart';
 import 'package:muslim_mate/screens/prayer_screen.dart';
 import 'package:muslim_mate/screens/profile_screen.dart';
 import 'package:muslim_mate/screens/quran_screen.dart';
 
 class AppShell extends StatefulWidget {
-  const AppShell({super.key});
+  const AppShell({super.key, this.initialIndex = 0});
+
+  final int initialIndex;
 
   @override
   State<AppShell> createState() => _AppShellState();
 }
 
 class _AppShellState extends State<AppShell> {
-  int _selectedIndex = 0;
+  late int _selectedIndex;
 
   static const List<Widget> _pages = <Widget>[
     HomeScreen(),
-    DiscoverScreen(),
+    AlMatsuratScreen(),
     QuranScreen(),
     PrayerScreen(),
     ProfileScreen(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.initialIndex;
+  }
 
   void _onItemTapped(int index) {
     setState(() {

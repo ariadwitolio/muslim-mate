@@ -49,9 +49,11 @@ dependencies:
   geolocator: ^11.0.0
   geocoding: ^3.0.0
   flutter_svg: ^2.0.7
+  flutter_compass: ^0.8.0
   
   # Custom fonts
   google_fonts: ^6.2.0
+  iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_test:

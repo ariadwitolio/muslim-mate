@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:muslim_mate/constants/index.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
               radius: 42,
               backgroundColor: AppColors.secondaryLight,
               child: Icon(
-                Icons.person,
+                Iconsax.profile_circle,
                 size: 48,
                 color: AppColors.primary,
               ),

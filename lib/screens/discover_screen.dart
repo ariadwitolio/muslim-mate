@@ -12,7 +12,7 @@ class DiscoverScreen extends StatelessWidget {
         backgroundColor: AppColors.primary,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

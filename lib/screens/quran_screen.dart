@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shimmer/shimmer.dart';
@@ -202,31 +203,28 @@ class _QuranScreenState extends State<QuranScreen> {
         toolbarOpacity: 1.0,
         centerTitle: false,
         titleSpacing: 20,
-        toolbarHeight: 64,
-        title: Padding(
-          padding: const EdgeInsets.only(top: 4),
-          child: Text(
-            'Al Quran',
-            style: _jakarta(
-              fontSize: 24,
-              fontWeight: FontWeight.w700,
-              color: _kTextPrimary,
-            ),
+        toolbarHeight: 60,
+        title: Text(
+          'Al Quran',
+          style: _jakarta(
+            fontSize: 22,
+            fontWeight: FontWeight.w700,
+            color: _kTextPrimary,
           ),
         ),
         titleTextStyle: _jakarta(
-          fontSize: 24,
+          fontSize: 22,
           fontWeight: FontWeight.w700,
           color: _kTextPrimary,
         ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+          padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
           child: Column(
             children: [
               _buildSearchRow(),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               _buildTabBar(),
               const SizedBox(height: 10),
               Expanded(child: _buildTabContent()),
@@ -248,7 +246,7 @@ class _QuranScreenState extends State<QuranScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
-          const Icon(Icons.search, size: 20, color: _kTextSecondary),
+          const Icon(Iconsax.search_normal, size: 20, color: _kTextSecondary),
           const SizedBox(width: 12),
           Expanded(
             child: TextField(
@@ -292,7 +290,7 @@ class _QuranScreenState extends State<QuranScreen> {
           Expanded(child: _buildTabItem('Juz', 1)),
           const SizedBox(width: 8),
           Expanded(
-            child: _buildTabItem('Last Read', 2, icon: Icons.access_time),
+            child: _buildTabItem('Last Read', 2, icon: Iconsax.clock),
           ),
         ],
       ),
@@ -594,7 +592,7 @@ class _QuranScreenState extends State<QuranScreen> {
                 ),
               ),
               const Icon(
-                Icons.arrow_forward_ios,
+                Iconsax.arrow_right_3,
                 size: 16,
                 color: _kTextSecondary,
               ),

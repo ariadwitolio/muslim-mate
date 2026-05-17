@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:shimmer/shimmer.dart';
@@ -30,7 +31,7 @@ class SurahDetailScreen extends StatefulWidget {
 
 class _SurahDetailScreenState extends State<SurahDetailScreen> {
   final ScrollController _tabScrollController = ScrollController();
-  final List<GlobalKey> _tabKeys = List.generate(114, (_) => GlobalKey());
+  final GlobalKey _activeTabKey = GlobalKey();
 
   bool _loading = true;
   String? _errorMessage;
@@ -43,9 +44,13 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
   @override
   void initState() {
     super.initState();
+    _tabScrollController.addListener(() {});
     _loadLastRead();
     _loadSurahTabs();
     _loadSurah(widget.surahNumber);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(milliseconds: 100), _scrollToActiveTab);
+    });
   }
 
   @override
@@ -86,7 +91,9 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
           _loadingTabs = false;
         });
       }
-      _scrollToActiveTab();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Future.delayed(const Duration(milliseconds: 150), _scrollToActiveTab);
+      });
     }
   }
 
@@ -107,7 +114,9 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
             ? detail.ayat.first.nomorAyat
             : 1;
       });
-      _scrollToActiveTab();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Future.delayed(const Duration(milliseconds: 150), _scrollToActiveTab);
+      });
     } catch (error) {
       if (mounted) {
         setState(() {
@@ -282,21 +291,38 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
     if (_surahTabs.isEmpty || _surahDetail == null) {
       return;
     }
-    final activeIndex = _surahTabs.indexWhere(
-      (tab) => tab.nomor == _surahDetail!.nomor,
-    );
-    if (activeIndex < 0 || activeIndex >= _tabKeys.length) {
+
+    if (!_tabScrollController.hasClients) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Future.delayed(const Duration(milliseconds: 100), _scrollToActiveTab);
+      });
       return;
     }
-    final context = _tabKeys[activeIndex].currentContext;
-    if (context != null) {
-      Scrollable.ensureVisible(
-        context,
-        duration: const Duration(milliseconds: 250),
-        alignment: 0.5,
-        curve: Curves.easeOut,
-      );
+
+    final keyContext = _activeTabKey.currentContext;
+    if (keyContext == null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Future.delayed(const Duration(milliseconds: 100), _scrollToActiveTab);
+      });
+      return;
     }
+
+    final box = keyContext.findRenderObject();
+    if (box is! RenderBox) {
+      return;
+    }
+
+    final tabPosition = box.localToGlobal(Offset.zero);
+    final tabWidth = box.size.width;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final currentScrollOffset = _tabScrollController.offset;
+    final tabCenterOnScreen = tabPosition.dx + tabWidth / 2;
+    final screenCenter = screenWidth / 2;
+    final targetOffset = currentScrollOffset + tabCenterOnScreen - screenCenter;
+
+    _tabScrollController.jumpTo(
+      targetOffset.clamp(0.0, _tabScrollController.position.maxScrollExtent),
+    );
   }
 
   TextStyle _jakarta({
@@ -341,15 +367,18 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
         shadowColor: Colors.transparent,
         scrolledUnderElevation: 0,
         toolbarOpacity: 1.0,
+        toolbarHeight: 64,
+        centerTitle: false,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, color: _kTextSecondary),
+          icon: const Icon(Iconsax.arrow_left, color: _kTextSecondary),
           onPressed: Navigator.of(context).pop,
         ),
         titleSpacing: 0,
         title: _buildAppBarSearchField(),
         actions: [
-          _buildAppBarIcon(Icons.tune, onTap: () {}, bordered: false),
-          _buildAppBarIcon(Icons.settings, onTap: () {}, bordered: false),
+          _buildAppBarIcon(Iconsax.setting_4, onTap: () {}, bordered: false),
+          const SizedBox(width: 2),
+          _buildAppBarIcon(Iconsax.setting_2, onTap: () {}, bordered: false),
           const SizedBox(width: 8),
         ],
       ),
@@ -377,22 +406,19 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
 
   Widget _buildAppBarIcon(IconData icon,
       {required VoidCallback onTap, bool bordered = true}) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8, right: 4),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(14),
-        onTap: onTap,
-        child: Container(
-          width: 46,
-          height: 46,
-          decoration: BoxDecoration(
-            color: _kSurface,
-            borderRadius: BorderRadius.circular(14),
-            border: bordered ? Border.all(color: _kBorder) : null,
-          ),
-          alignment: Alignment.center,
-          child: Icon(icon, size: 20, color: _kTextSecondary),
+    return InkWell(
+      borderRadius: BorderRadius.circular(14),
+      onTap: onTap,
+      child: Container(
+        width: 46,
+        height: 46,
+        decoration: BoxDecoration(
+          color: _kSurface,
+          borderRadius: BorderRadius.circular(14),
+          border: bordered ? Border.all(color: _kBorder) : null,
         ),
+        alignment: Alignment.center,
+        child: Icon(icon, size: 20, color: _kTextSecondary),
       ),
     );
   }
@@ -401,13 +427,13 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
     return Container(
       height: 44,
       decoration: BoxDecoration(
-        color: const Color(0xFFF5F5F5),
+        color: const Color(0xFFF4F7FB),
         borderRadius: BorderRadius.circular(16),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 14),
       child: Row(
         children: [
-          const Icon(Icons.search, color: _kTextSecondary, size: 20),
+          const Icon(Iconsax.search_normal, color: _kTextSecondary, size: 20),
           const SizedBox(width: 10),
           Text(
             'Search',
@@ -475,10 +501,9 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
       );
     }
 
+    // Display tabs in reversed order (right-to-left)
+    final displayTabs = _surahTabs.reversed.toList();
     return Container(
-      decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(color: Color(0xFFE5E7EB), width: 1)),
-      ),
       child: SizedBox(
         height: 52,
         child: ListView.separated(
@@ -486,38 +511,35 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),
-          itemCount: _surahTabs.length,
+          itemCount: displayTabs.length,
           separatorBuilder: (context, _) => const SizedBox(width: 24),
           itemBuilder: (context, index) {
-            final tab = _surahTabs[index];
+            final tab = displayTabs[index];
             final active = tab.nomor == _surahDetail?.nomor;
             return GestureDetector(
-              key: _tabKeys[index],
+              key: active ? _activeTabKey : null,
               onTap: () => _loadSurah(tab.nomor),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '${tab.nomor}. ${tab.namaLatin}',
-                    style: _jakarta(
-                      fontSize: 14,
-                      fontWeight: active ? FontWeight.w700 : FontWeight.w500,
-                      color: active ? _kAccent : _kTextSecondary,
+              child: IntrinsicWidth(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      '${tab.nomor}. ${tab.namaLatin}',
+                      style: _jakarta(
+                        fontSize: 14,
+                        fontWeight: active ? FontWeight.w700 : FontWeight.w500,
+                        color: active ? _kAccent : _kTextSecondary,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 6),
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    height: 2,
-                    width: active ? 36 : 0,
-                    decoration: BoxDecoration(
-                      color: _kAccent,
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
-                ],
+                    const SizedBox(height: 6),
+                    if (active)
+                      Container(height: 2, color: _kAccent)
+                    else
+                      const SizedBox(height: 2),
+                  ],
+                ),
               ),
             );
           },
@@ -532,9 +554,8 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: const BoxDecoration(
-        color: Color(0xFFF5F5F5),
+        color: Color(0xFFF4F7FB),
         border: Border(
-          top: BorderSide(color: Color(0xFFE5E7EB), width: 1),
           bottom: BorderSide(color: Color(0xFFE5E7EB), width: 1),
         ),
       ),
@@ -554,6 +575,7 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
 
   Widget _buildAyahList(SurahDetail detail) {
     return ListView.separated(
+      padding: const EdgeInsets.only(top: 0, bottom: 32),
       physics: const BouncingScrollPhysics(),
       itemCount: detail.ayat.length,
       separatorBuilder: (context, _) =>
@@ -561,7 +583,7 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
       itemBuilder: (context, index) {
         final ayah = detail.ayat[index];
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

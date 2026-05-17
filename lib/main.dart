@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:muslim_mate/app_router.dart';
 import 'package:muslim_mate/constants/index.dart';
-import 'package:muslim_mate/screens/index.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: const AppShell(),
+      initialRoute: AppRouter.home,
+      routes: AppRouter.routes,
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:muslim_mate/core/theme/app_colors.dart';
 import 'package:muslim_mate/core/theme/app_text_styles.dart';
 
@@ -24,31 +25,31 @@ class HomeBottomNavigation extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _NavigationItem(
-                icon: Icons.home,
+                icon: Iconsax.home_2,
                 label: 'Home',
                 active: currentIndex == 0,
                 onTap: () => onTap(0),
               ),
               _NavigationItem(
-                icon: Icons.explore_outlined,
-                label: 'Discover',
+                icon: Iconsax.book_saved,
+                label: 'Al-Ma\'tsurat',
                 active: currentIndex == 1,
                 onTap: () => onTap(1),
               ),
               _NavigationItem(
-                icon: Icons.book_outlined,
+                icon: Iconsax.book_1,
                 label: 'Quran',
                 active: currentIndex == 2,
                 onTap: () => onTap(2),
               ),
               _NavigationItem(
-                icon: Icons.calendar_today_outlined,
+                icon: Iconsax.clock,
                 label: 'Prayer',
                 active: currentIndex == 3,
                 onTap: () => onTap(3),
               ),
               _NavigationItem(
-                icon: Icons.person_outline,
+                icon: Iconsax.profile_circle,
                 label: 'Profile',
                 active: currentIndex == 4,
                 onTap: () => onTap(4),

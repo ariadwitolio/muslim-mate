@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hijri/hijri_calendar.dart';
@@ -10,6 +11,7 @@ import 'package:intl/intl.dart';
 import 'package:muslim_mate/core/theme/app_colors.dart';
 import 'package:muslim_mate/core/theme/app_text_styles.dart';
 import 'package:muslim_mate/features/home/presentation/widgets/home_daily_activity_section.dart';
+import 'package:muslim_mate/app_router.dart';
 import 'package:muslim_mate/features/home/presentation/widgets/home_last_read_card.dart';
 import 'package:muslim_mate/features/home/presentation/widgets/home_prayer_time_chip.dart';
 import 'package:muslim_mate/features/home/presentation/widgets/home_shortcut_action_card.dart';
@@ -260,19 +262,19 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   IconData _iconForPrayer(String name) {
     switch (name) {
       case 'Subuh':
-        return Icons.nights_stay;
+        return Iconsax.moon;
       case 'Fajr':
-        return Icons.cloud;
+        return Iconsax.cloud;
       case 'Dhuhr':
-        return Icons.wb_sunny;
+        return Iconsax.sun;
       case 'Asr':
-        return Icons.filter_drama;
+        return Iconsax.cloud_sunny;
       case 'Maghrib':
-        return Icons.wb_twighlight;
+        return Iconsax.moon;
       case 'Isha':
-        return Icons.nightlight_round;
+        return Iconsax.moon;
       default:
-        return Icons.access_time;
+        return Iconsax.clock;
     }
   }
 
@@ -451,7 +453,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                       child: Row(
                                         children: [
                                           const Icon(
-                                            Icons.location_on,
+                                            Iconsax.location,
                                             color: Colors.white,
                                             size: 12,
                                           ),
@@ -467,7 +469,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                           ),
                                           const SizedBox(width: 6),
                                           const Icon(
-                                            Icons.arrow_forward_ios,
+                                            Iconsax.arrow_right_3,
                                             color: Colors.white,
                                             size: 12,
                                           ),
@@ -505,17 +507,20 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     const SizedBox(height: 8),
                     const HomeLastReadCard(),
                     Row(
-                      children: const [
+                      children: [
                         HomeShortcutActionCard(
                           title: 'Find',
                           subtitle: 'Qibla',
-                          icon: Icons.explore,
+                          icon: Iconsax.discover,
+                          onTap: () {
+                            Navigator.pushNamed(context, AppRouter.qibla);
+                          },
                         ),
-                        SizedBox(width: 10),
-                        HomeShortcutActionCard(
+                        const SizedBox(width: 10),
+                        const HomeShortcutActionCard(
                           title: 'Find nearest',
                           subtitle: 'Mosque',
-                          icon: Icons.location_on,
+                          icon: Iconsax.location,
                         ),
                       ],
                     ),

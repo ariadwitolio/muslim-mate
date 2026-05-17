@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:muslim_mate/core/theme/app_colors.dart';
 import 'package:muslim_mate/core/theme/app_text_styles.dart';
 
@@ -40,7 +41,7 @@ class HomeLastReadCard extends StatelessWidget {
                     Row(
                       children: [
                         Icon(
-                          Icons.menu_book,
+                          Iconsax.book_1,
                           color: HomeColors.primary,
                           size: 24,
                         ),
@@ -103,7 +104,7 @@ class HomeLastReadCard extends StatelessWidget {
           child: Opacity(
             opacity: 0.1,
             child: Icon(
-              Icons.book_outlined,
+              Iconsax.book_1,
               size: 146,
               color: HomeColors.primary,
             ),

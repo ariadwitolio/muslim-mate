@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hijri/hijri_calendar.dart';
@@ -236,19 +237,19 @@ class _HomeScreenState extends State<HomeScreen>
   IconData _iconForPrayer(String name) {
     switch (name) {
       case 'Imsak':
-        return Icons.notifications;
+        return Iconsax.notification;
       case 'Fajr':
-        return Icons.cloud;
+        return Iconsax.cloud;
       case 'Dhuhr':
-        return Icons.wb_sunny;
+        return Iconsax.sun;
       case 'Asr':
-        return Icons.cloud_queue;
+        return Iconsax.cloud_sunny;
       case 'Maghrib':
-        return Icons.nightlight_round;
+        return Iconsax.moon;
       case 'Isha':
-        return Icons.bedtime;
+        return Iconsax.moon;
       default:
-        return Icons.access_time;
+        return Iconsax.clock;
     }
   }
 
@@ -351,7 +352,7 @@ class _HomeScreenState extends State<HomeScreen>
                       child: Row(
                         children: [
                           const Icon(
-                            Icons.location_on,
+                            Iconsax.location,
                             color: Colors.white,
                             size: 12,
                           ),
@@ -366,7 +367,7 @@ class _HomeScreenState extends State<HomeScreen>
                           ),
                           const SizedBox(width: 6),
                           const Icon(
-                            Icons.arrow_forward_ios,
+                            Iconsax.arrow_right_3,
                             color: Colors.white,
                             size: 12,
                           ),
@@ -417,13 +418,13 @@ class _HomeScreenState extends State<HomeScreen>
                     Row(
                       children: [
                         _buildQuickActionCard(
-                          icon: Icons.explore,
+                          icon: Iconsax.discover,
                           title: 'Find',
                           subtitle: 'Qibla',
                         ),
                         const SizedBox(width: 10),
                         _buildQuickActionCard(
-                          icon: Icons.location_on,
+                          icon: Iconsax.location,
                           title: 'Find nearest',
                           subtitle: 'Mosque',
                         ),
@@ -507,7 +508,7 @@ class _HomeScreenState extends State<HomeScreen>
               color: _homeIconBackgroundColor,
               borderRadius: BorderRadius.circular(16),
             ),
-            child: const Icon(Icons.menu_book, color: Colors.white, size: 28),
+            child: const Icon(Iconsax.book_1, color: Colors.white, size: 28),
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -836,7 +837,7 @@ class _ActivityTile extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          Icon(Icons.circle_outlined, size: 28, color: AppColors.greyDark),
+          Icon(Iconsax.arrange_circle, size: 28, color: AppColors.greyDark),
         ],
       ),
     );
