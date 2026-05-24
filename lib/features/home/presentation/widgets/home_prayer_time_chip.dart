@@ -28,7 +28,7 @@ class HomePrayerTimeChip extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       decoration: active
           ? BoxDecoration(
-              color: Colors.white.withValues(alpha: (0.3)),
+              color: Colors.white.withValues(alpha: 0.3),
               borderRadius: BorderRadius.circular(26),
             )
           : null,

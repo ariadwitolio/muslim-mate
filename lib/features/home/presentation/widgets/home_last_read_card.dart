@@ -60,7 +60,7 @@ class HomeLastReadCard extends StatelessWidget {
                             vertical: 6,
                           ),
                           decoration: BoxDecoration(
-                            color: HomeColors.primary.withValues(alpha: (0.12)),
+                            color: HomeColors.primary.withValues(alpha: 0.12),
                             borderRadius: BorderRadius.circular(1000),
                           ),
                           child: Text(

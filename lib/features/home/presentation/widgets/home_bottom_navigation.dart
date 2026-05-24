@@ -65,7 +65,7 @@ class HomeBottomNavigation extends StatelessWidget {
               width: 144,
               height: 5,
               decoration: BoxDecoration(
-                color: HomeColors.onSurface.withValues(alpha: (0.08)),
+                color: HomeColors.onSurface.withValues(alpha: 0.08),
                 borderRadius: BorderRadius.circular(100),
               ),
             ),
