@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:muslim_mate/core/theme/app_colors.dart';
+// import 'package:muslim_mate/core/theme/app_colors.dart';
 import 'package:muslim_mate/core/theme/app_text_styles.dart';
 
 class HomePrayerTimeChip extends StatelessWidget {
@@ -28,7 +28,7 @@ class HomePrayerTimeChip extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       decoration: active
           ? BoxDecoration(
-              color: Colors.white.withOpacity(0.3),
+              color: Colors.white.withValues(alpha: (0.3)),
               borderRadius: BorderRadius.circular(26),
             )
           : null,

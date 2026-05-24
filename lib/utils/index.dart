@@ -1,1 +1,1 @@
-export 'logger.dart';
+export '../core/utils/logger.dart';

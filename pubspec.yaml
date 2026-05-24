@@ -38,6 +38,11 @@ dependencies:
   # State management
   provider: ^6.1.5+1
   
+  # Navigation and dependency injection
+  go_router: ^7.0.0
+  get_it: ^8.1.0
+  flutter_bloc: ^8.1.2
+  
   # HTTP client for API calls
   http: ^1.2.0
   shimmer: ^3.0.0
