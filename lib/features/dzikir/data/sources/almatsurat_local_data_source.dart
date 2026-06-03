@@ -5,6 +5,7 @@ class AlMatsuratLocalDataSource {
 }
 
 const List<AlMatsuratItem> almatsuratItems = [
+  // MORNING ITEMS
   AlMatsuratItem(
     id: 1,
     title: "Ta'awudz",
@@ -16,115 +17,161 @@ const List<AlMatsuratItem> almatsuratItems = [
   ),
   AlMatsuratItem(
     id: 2,
-    title: 'Al-Fatihah',
+    title: 'QS. Al-Fatihah : 1-7',
     arabic: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴿١﴾ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ﴿٢﴾ الرَّحْمَٰنِ الرَّحِيمِ ﴿٣﴾ مَالِكِ يَوْمِ الدِّينِ ﴿٤﴾ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ﴿٦﴾ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ ﴿٧﴾',
-    transliteration:
-        "Bismillāhir-raḥmānir-raḥīm. Al-ḥamdu lillāhi rabbil-'ālamīn. Ar-raḥmānir-raḥīm. Māliki yawmid-dīn. Iyyāka na'budu wa iyyāka nasta'īn. Ihdinash-shirāṭal-mustaqīm. Shirāṭal-ladhīna an'amta 'alayhim ghayril-maghdūbi 'alayhim wa lad-dāllīn.",
-    translation:
-        'In the name of Allah, the Entirely Merciful, the Especially Merciful. All praise is due to Allah, Lord of all the worlds. The Entirely Merciful, the Especially Merciful. Sovereign of the Day of Recompense. It is You we worship and You we ask for help. Guide us to the straight path — the path of those upon whom You have bestowed favor, not of those who have evoked anger or of those who are astray.',
+    transliteration: "Bismillāhir-raḥmānir-raḥīm. Al-ḥamdu lillāhi rabbil-'ālamīn. Ar-raḥmānir-raḥīm. Māliki yawmid-dīn. Iyyāka na'budu wa iyyāka nasta'īn. Ihdinash-shirāṭal-mustaqīm. Shirāṭal-ladhīna an'amta 'alayhim ghayril-maghdūbi 'alayhim wa lad-dāllīn.",
+    translation: 'In the name of Allah, the Entirely Merciful, the Especially Merciful. All praise is due to Allah, Lord of all the worlds. The Entirely Merciful, the Especially Merciful. Sovereign of the Day of Recompense. It is You we worship and You we ask for help. Guide us to the straight path — the path of those upon whom You have bestowed favor, not of those who have evoked anger or of those who are astray.',
     repeat: 1,
     category: 'morning',
   ),
   AlMatsuratItem(
     id: 3,
-    title: 'Al-Baqarah 1-5',
-    arabic:
-        'الم ﴿١﴾ ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ ﴿٢﴾ الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ ﴿٣﴾ وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ ﴿٤﴾ أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ ﴿٥﴾',
-    transliteration:
-        "Alif lām mīm. Dhālikal-kitābu lā rayba fīh, hudan lil-muttaqīn. Alladhīna yu'minūna bil-ghaybi wa yuqīmūnaṣ-ṣalāta wa mimmā razaqnāhum yunfiqūn. Walladhīna yu'minūna bimā unzila ilayka wa mā unzila min qablik, wa bil-ākhirati hum yūqinūn. Ulā'ika 'alā hudan mir-rabbihim wa ulā'ika humul-mufliḥūn.",
-    translation:
-        'Alif Lam Mim. This is the Book about which there is no doubt, a guidance for those conscious of Allah — who believe in the unseen, establish prayer, and spend out of what We have provided for them, and who believe in what has been revealed to you and what was revealed before you, and of the Hereafter they are certain. Those are upon guidance from their Lord, and it is those who are successful.',
+    title: 'QS. Al-Baqarah : 1-5',
+    arabic: 'الم ﴿١﴾ ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ ﴿٢﴾ الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ ﴿٣﴾ وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ ﴿٤﴾ أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ ﴿٥﴾',
+    transliteration: "Alif lām mīm. Dhālikal-kitābu lā rayba fīh, hudan lil-muttaqīn. Alladhīna yu'minūna bil-ghaybi wa yuqīmūnaṣ-ṣalāta wa mimmā razaqnāhum yunfiqūn. Walladhīna yu'minūna bimā unzila ilayka wa mā unzila min qablik, wa bil-ākhirati hum yūqinūn. Ulā'ika 'alā hudan mir-rabbihim wa ulā'ika humul-mufliḥūn.",
+    translation: 'Alif Lam Mim. This is the Book about which there is no doubt, a guidance for those conscious of Allah — who believe in the unseen, establish prayer, and spend out of what We have provided for them, and who believe in what has been revealed to you and what was revealed before you, and of the Hereafter they are certain. Those are upon guidance from their Lord, and it is those who are successful.',
     repeat: 1,
     category: 'morning',
   ),
   AlMatsuratItem(
     id: 4,
-    title: 'Ayat Kursi',
-    arabic:
-        'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ',
-    transliteration:
-        "Allāhu lā ilāha illā huw, al-ḥayyul-qayyūm, lā ta'khudhuhu sinatun wa lā nawm, lahu mā fis-samāwāti wa mā fil-arḍ, man dhal-ladhī yashfa'u 'indahu illā bi'idhnih, ya'lamu mā bayna aydīhim wa mā khalfahum, wa lā yuḥīṭūna bishay'in min 'ilmihi illā bimā shā', wasi'a kursiyyuhus-samāwāti wal-arḍ, wa lā ya'ūdhuhu ḥifẓuhumā, wa huwal-'aliyyul-'aẓīm.",
-    translation:
-        'Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.',
+    title: 'QS. Al-Baqarah : 255 - 257',
+    arabic: 'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ ﴿٢٥٥﴾ لَا إِكْرَاهَ فِي الدِّينِ قَد تَّبَيَّنَ الرُّشْدُ مِنَ الْغَيِّ فَمَن يَكْفُرْ بِالطَّاغُوتِ وَيُؤْمِن بِاللَّهِ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقَىٰ لَا انفِصَامَ لَهَا وَاللَّهُ سَمِيعٌ عَلِيمٌ ﴿٢٥٦﴾ اللَّهُ وَلِيُّ الَّذِينَ آمَنُوا يُخْرِجُهُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ وَالَّذِينَ كَفَرُوا أَوْلِيَاؤُهُمُ الطَّاغُوتُ يُخْرِجُونَهُم مِّنَ النُّورِ إِلَى الظُّلُمَاتِ أُولَٰئِكَ أَصْحَابُ النَّارِ هُمْ فِيهَا خَالِدُونَ ﴿٢٥٧﴾',
+    transliteration: "Allāhu lā ilāha illā huw, al-ḥayyul-qayyūm, lā ta'khudhuhu sinatun wa lā nawm, lahu mā fis-samāwāti wa mā fil-arḍ, man dhal-ladhī yashfa'u 'indahu illā bi'idhnih, ya'lamu mā bayna aydīhim wa mā khalfahum, wa lā yuḥīṭūna bishay'in min 'ilmihi illā bimā shā', wasi'a kursiyyuhus-samāwāti wal-arḍ, wa lā ya'ūdhuhu ḥifẓuhumā, wa huwal-'aliyyul-'aẓīm.",
+    translation: 'Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great. There is no compulsion in religion. The right course has become clear from the wrong. So whoever disbelieves in Taghut and believes in Allah has grasped the most trustworthy handhold with no break in it. And Allah is Hearing and Knowing. Allah is the ally of those who have believed. He brings them out from darknesses into the light. And those who have disbelieved — their allies are Taghut. They take them out of the light into darknesses. Those are the companions of the Fire; they will abide eternally therein.',
     repeat: 1,
     category: 'morning',
   ),
   AlMatsuratItem(
     id: 5,
-    title: 'Al-Baqarah 284-286',
-    arabic:
-        'لِّلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ وَإِن تُبْدُوا مَا فِي أَنفُسِكُمْ أَوْ تُخْفُوهُ يُحَاسِبْكُم بِهِ اللَّهُ فَيَغْفِرُ لِمَن يَشَاءُ وَيُعَذِّبُ مَن يَشَاءُ وَاللَّهُ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ',
-    transliteration:
-        "Lillāhi mā fis-samāwāti wa mā fil-arḍ, wa in tubdū mā fī anfusikum aw tukhfūhu yuḥāsibkum bihillāh, fayaghfiru liman yashā'u wa yu'adhdhibu man yashā', wallāhu 'alā kulli shay'in qadīr.",
-    translation:
-        'To Allah belongs whatever is in the heavens and whatever is in the earth. Whether you show what is within yourselves or conceal it, Allah will bring you to account for it. Then He will forgive whom He wills and punish whom He wills, and Allah is over all things competent.',
+    title: 'QS. Al-Baqarah : 284-286',
+    arabic: 'لِّلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ وَإِن تُبْدُوا مَا فِي أَنفُسِكُمْ أَوْ تُخْفُوهُ يُحَاسِبْكُم بِهِ اللَّهُ فَيَغْفِرُ لِمَن يَشَاءُ وَيُعَذِّبُ مَن يَشَاءُ وَاللَّهُ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ ﴿٢٨٤﴾ آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ وَقَالُوا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ ﴿٢٨٥﴾ لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ ﴿٢٨٦﴾',
+    transliteration: "Lillāhi mā fis-samāwāti wa mā fil-arḍ, wa in tubdū mā fī anfusikum aw tukhfūhu yuḥāsibkum bihillāh, fayaghfiru liman yashā'u wa yu'adhdhibu man yashā', wallāhu 'alā kulli shay'in qadīr.",
+    translation: 'To Allah belongs whatever is in the heavens and whatever is in the earth. Whether you show what is within yourselves or conceal it, Allah will bring you to account for it. Then He will forgive whom He wills and punish whom He wills, and Allah is over all things competent. The Messenger has believed in what has been revealed to him from his Lord, and so have the believers. All of them have believed in Allah and His angels and His books and His messengers, saying, "We make no distinction between any of His messengers." And they say, "We hear and we obey. Our Lord, we ask Your forgiveness, and to You is the destination." Allah does not charge a soul except with that within its capacity. It will have what it has earned, and upon it what it has earned. Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, and lay not upon us a burden like that which You laid upon those before us. Our Lord, and burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people.',
     repeat: 1,
     category: 'morning',
   ),
   AlMatsuratItem(
     id: 6,
-    title: 'Al-Ikhlas',
-    arabic:
-        'قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾',
-    transliteration:
-        "Qul huwallāhu aḥad. Allāhuṣ-ṣamad. Lam yalid wa lam yūlad. Wa lam yakun lahū kufuwan aḥad.",
-    translation:
-        'Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent.',
+    title: 'QS. Al-Ikhlash : 1 – 4',
+    arabic: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾',
+    transliteration: "Bismillāhir-raḥmānir-raḥīm. Qul huwallāhu aḥad. Allāhuṣ-ṣamad. Lam yalid wa lam yūlad. Wa lam yakun lahū kufuwan aḥad.",
+    translation: 'In the name of Allah, the Entirely Merciful, the Especially Merciful. Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent.',
     repeat: 3,
     category: 'morning',
   ),
   AlMatsuratItem(
     id: 7,
-    title: 'Al-Falaq',
-    arabic:
-        'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ﴿١﴾ مِن شَرِّ مَا خَلَقَ ﴿٢﴾ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ﴿٣﴾ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ﴿٤﴾ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ ﴿٥﴾',
-    transliteration:
-        "Qul a'ūdhu birabbil-falaq. Min sharri mā khalaq. Wa min sharri ghāsiqin idhā waqab. Wa min sharrin-naffāthāti fil-'uqad. Wa min sharri ḥāsidin idhā ḥasad.",
-    translation:
-        'Say: I seek refuge in the Lord of daybreak. From the evil of that which He created. And from the evil of darkness when it settles. And from the evil of the blowers in knots. And from the evil of an envier when he envies.',
+    title: 'QS. Al-Falaq : 1 – 5',
+    arabic: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ﴿١﴾ مِن شَرِّ مَا خَلَقَ ﴿٢﴾ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ﴿٣﴾ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ﴿٤﴾ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ ﴿٥﴾',
+    transliteration: "Bismillāhir-raḥmānir-raḥīm. Qul a'ūdhu birabbil-falaq. Min sharri mā khalaq. Wa min sharri ghāsiqin idhā waqab. Wa min sharrin-naffāthāti fil-'uqad. Wa min sharri ḥāsidin idhā ḥasad.",
+    translation: 'In the name of Allah, the Entirely Merciful, the Especially Merciful. Say: I seek refuge in the Lord of daybreak. From the evil of that which He created. And from the evil of darkness when it settles. And from the evil of the blowers in knots. And from the evil of an envier when he envies.',
     repeat: 3,
     category: 'morning',
   ),
   AlMatsuratItem(
     id: 8,
-    title: 'An-Nas',
-    arabic:
-        'قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿١﴾ مَلِكِ النَّاسِ ﴿٢﴾ إِلَٰهِ النَّاسِ ﴿٣﴾ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿٥﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾',
-    transliteration:
-        "Qul a'ūdhu birabbin-nās. Malikin-nās. Ilāhin-nās. Min sharril-waswāsil-khannās. Alladhī yuwaswisu fī ṣudūrin-nās. Minal-jinnati wan-nās.",
-    translation:
-        'Say: I seek refuge in the Lord of mankind. The Sovereign of mankind. The God of mankind. From the evil of the retreating whisperer. Who whispers in the breasts of mankind. From among the jinn and mankind.',
+    title: 'QS. An-Nas : 1 – 6',
+    arabic: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿١﴾ مَلِكِ النَّاسِ ﴿٢﴾ إِلَٰهِ النَّاسِ ﴿٣﴾ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿٥﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾',
+    transliteration: "Bismillāhir-raḥmānir-raḥīm. Qul a'ūdhu birabbin-nās. Malikin-nās. Ilāhin-nās. Min sharril-waswāsil-khannās. Alladhī yuwaswisu fī ṣudūrin-nās. Minal-jinnati wan-nās.",
+    translation: 'In the name of Allah, the Entirely Merciful, the Especially Merciful. Say: I seek refuge in the Lord of mankind. The Sovereign of mankind. The God of mankind. From the evil of the retreating whisperer. Who whispers in the breasts of mankind. From among the jinn and mankind.',
     repeat: 3,
     category: 'morning',
   ),
   AlMatsuratItem(
     id: 9,
-    title: 'Morning Dhikr — Ashhadu',
-    arabic:
-        'أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
-    transliteration:
-        "Aṣbaḥnā wa aṣbaḥal-mulku lillāh, walḥamdu lillāh, lā ilāha illallāhu waḥdahu lā sharīka lah, lahul-mulku wa lahul-ḥamdu wa huwa 'alā kulli shay'in qadīr.",
-    translation:
-        'We have entered a new morning and the dominion belongs to Allah. All praise is for Allah. There is no deity worthy of worship except Allah alone, with no partners. To Him belongs the dominion and all praise, and He is over all things capable.',
-    repeat: 1,
+    title: 'Dzikir',
+    arabic: 'أَسْبَحْنَا وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ',
+    transliteration: "Asbahna wa bihamdihi, subhanallahil 'aziim.",
+    translation: 'We have reached the morning and by Allah\'s blessing. Glory be to Allah, the Supreme.',
+    repeat: 3,
     category: 'morning',
   ),
   AlMatsuratItem(
     id: 10,
-    title: 'Sayyidul Istighfar',
-    arabic:
-        'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ',
-    transliteration:
-        "Allāhumma anta rabbī lā ilāha illā ant, khalaqtanī wa ana 'abduk, wa ana 'alā 'ahdika wa wa'dika mastata't, a'ūdhu bika min sharri mā ṣana't, abū'u laka bini'matika 'alayya wa abū'u bidhanbī faghfir lī fa'innahū lā yaghfirudh-dhunūba illā ant.",
-    translation:
-        'O Allah, You are my Lord. There is no deity worthy of worship except You. You created me and I am Your servant, and I am upon Your covenant and promise as best I can. I seek refuge in You from the evil of what I have done. I acknowledge Your favor upon me and I acknowledge my sin, so forgive me, for indeed none forgives sins except You.',
+    title: 'Dzikir',
+    arabic: 'اَسْتَغْفِرُ اللهَ الْعَظِيمَ الَّذِي لاَ إِلهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ',
+    transliteration: "Astaghfirullahhal 'adzim alladzii laa ilaaha illaa huwal hayyu al-qayyum wa atuubu ilaihi.",
+    translation: 'I seek forgiveness from Allah the Great, there is no deity but Him, the Living, the Sustainer of existence, and I repent to Him.',
+    repeat: 3,
+    category: 'morning',
+  ),
+  AlMatsuratItem(
+    id: 11,
+    title: 'Dzikir',
+    arabic: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ',
+    transliteration: "Subhanallahi wa bihamdihi, subhanallahil 'adzim.",
+    translation: 'Glory be to Allah and by His praise. Glory be to Allah, the Supreme.',
+    repeat: 10,
+    category: 'morning',
+  ),
+  AlMatsuratItem(
+    id: 12,
+    title: 'Dzikir',
+    arabic: 'لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ الْعَلِىِّ الْعَظِيمِ',
+    transliteration: "Laa haula wa laa quwwata illaa billahil 'aliyyil 'adzim.",
+    translation: 'There is no power and no strength except with Allah, the Most High, the Supreme.',
+    repeat: 3,
+    category: 'morning',
+  ),
+  AlMatsuratItem(
+    id: 13,
+    title: 'Doa Pagi',
+    arabic: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ. اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي. اللَّهُمَّ اسْتُرْ عَوْرَاتِي وَآمِنْ رَوْعَاتِي، وَاحْفَظْنِي مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي',
+    transliteration: "Allaahumma inni as'aluka al-'afwa wa al-'aafiyah fi ad-dunya wa al-aakhirah. Allaahumma inni as'aluka al-'afwa wa al-'aafiyah fi dini wa dunya-ya wa ahli wa mali. Allaahumma astur 'awrati wa amin raw'ati, wa ihfazni min bayni yadayya wa min khalfi wa 'an yamini wa 'an shimali wa min fawqi, wa a'udhu bi'azamatika an ughtala min tahti.",
+    translation: 'O Allah, I ask You for forgiveness and good health in this life and the next. O Allah, I ask You for forgiveness and good health in my religion, my worldly life, my family, and my wealth. O Allah, cover my shame and grant me peace, and protect me from before me and behind me, from my right and my left, and from above me, and I seek refuge in Your magnificence that I should be attacked from below.',
+    repeat: 1,
+    category: 'morning',
+  ),
+  AlMatsuratItem(
+    id: 14,
+    title: 'Doa Pagi',
+    arabic: 'اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ',
+    transliteration: "Allaahumma bika asbahna wa bika amsayna wa bika nahya wa bika namutu wa ilaika an-nusyur.",
+    translation: 'O Allah, by You we have entered the morning and by You we have entered the evening, by You we live and by You we die, and to You is resurrection.',
+    repeat: 1,
+    category: 'morning',
+  ),
+  AlMatsuratItem(
+    id: 15,
+    title: 'Doa Pagi',
+    arabic: 'اللَّهُمَّ أَنْتَ رَبِّي لاَ إِلهَ إِلاَّ أَنْتَ ، خَلَقْتَنِي وَأَنَا عَبْدُكَ ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ ، وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي ، فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ',
+    transliteration: "Allaahumma anta rabbi laa ilaha illa anta, khalaqtani wa ana abduka, wa ana ala ahdika wa wa'adika mastata'tu, a'udhu bika min sharri ma sana'tu, abuubiilaka bini'matika alayya, wa abuubuIlaka bidhanbi faghfir li, fa'innahu laa yaghfiru adh-dhunuba illa anta.",
+    translation: 'O Allah, You are my Lord, there is no deity but You. You created me and I am Your servant, and I am upon Your covenant and promise as much as I am able. I seek refuge in You from the evil of what I have done. I acknowledge Your blessing upon me, and I acknowledge my sin, so forgive me, for indeed none forgives sins except You.',
+    repeat: 1,
+    category: 'morning',
+  ),
+  AlMatsuratItem(
+    id: 16,
+    title: 'Dzikir',
+    arabic: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الشَّيْطَانِ الرَّجِيمِ',
+    transliteration: "Allaahumma inni a'udhu bika minasy-syaithanir rajim.",
+    translation: 'O Allah, I seek refuge in You from the accursed Satan.',
+    repeat: 3,
+    category: 'morning',
+  ),
+  AlMatsuratItem(
+    id: 17,
+    title: 'Doa Pagi',
+    arabic: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ بِأَسْمَائِكَ الْحُسْنَى كُلِّهَا، مَا عَلِمْتُ مِنْهَا وَمَا لَمْ أَعْلَمْ، أَنْ تَسْتَجِيبَ لِي الدُّعَاءَ',
+    transliteration: "Allaahumma inni as'aluka biasma'ika al-husnaa kulliha, maa 'alimtu minaha wa maa lam a'lam, an tastajiba li ad-du'aa.",
+    translation: 'O Allah, I ask You by all Your beautiful names, those I know and those I do not know, to respond to my supplication.',
+    repeat: 1,
+    category: 'morning',
+  ),
+  AlMatsuratItem(
+    id: 18,
+    title: 'Shalawat & Doa',
+    arabic: 'اللَّهُمَّ آمِينَ ، وَصَلِّ اللَّهُمَّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ',
+    transliteration: "Allaahumma aamin, wa shalillahumma 'ala sayyidina muhammadin wa 'ala aalihi wa shahbihi wa sallim.",
+    translation: 'O Allah, amen. And may Allah\'s blessings be upon our master Muhammad and upon his family and companions.',
     repeat: 1,
     category: 'morning',
   ),
 
-  // Evening items share the same sequence with a different dhikr at id 9.
+  // EVENING ITEMS
   AlMatsuratItem(
-    id: 1,
+    id: 19,
     title: "Ta'awudz",
     arabic: 'أَعُوذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيمِ',
     transliteration: "A'udzu billahi minasy-syaithanir rajim",
@@ -133,109 +180,137 @@ const List<AlMatsuratItem> almatsuratItems = [
     category: 'evening',
   ),
   AlMatsuratItem(
-    id: 2,
-    title: 'Al-Fatihah',
+    id: 20,
+    title: 'QS. Al-Fatihah : 1-7',
     arabic: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴿١﴾ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ﴿٢﴾ الرَّحْمَٰنِ الرَّحِيمِ ﴿٣﴾ مَالِكِ يَوْمِ الدِّينِ ﴿٤﴾ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ﴿٦﴾ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ ﴿٧﴾',
-    transliteration:
-        "Bismillāhir-raḥmānir-raḥīm. Al-ḥamdu lillāhi rabbil-'ālamīn. Ar-raḥmānir-raḥīm. Māliki yawmid-dīn. Iyyāka na'budu wa iyyāka nasta'īn. Ihdinash-shirāṭal-mustaqīm. Shirāṭal-ladhīna an'amta 'alayhim ghayril-maghdūbi 'alayhim wa lad-dāllīn.",
-    translation:
-        'In the name of Allah, the Entirely Merciful, the Especially Merciful. All praise is due to Allah, Lord of all the worlds. The Entirely Merciful, the Especially Merciful. Sovereign of the Day of Recompense. It is You we worship and You we ask for help. Guide us to the straight path — the path of those upon whom You have bestowed favor, not of those who have evoked anger or of those who are astray.',
+    transliteration: "Bismillāhir-raḥmānir-raḥīm. Al-ḥamdu lillāhi rabbil-'ālamīn. Ar-raḥmānir-raḥīm. Māliki yawmid-dīn. Iyyāka na'budu wa iyyāka nasta'īn. Ihdinash-shirāṭal-mustaqīm. Shirāṭal-ladhīna an'amta 'alayhim ghayril-maghdūbi 'alayhim wa lad-dāllīn.",
+    translation: 'In the name of Allah, the Entirely Merciful, the Especially Merciful. All praise is due to Allah, Lord of all the worlds. The Entirely Merciful, the Especially Merciful. Sovereign of the Day of Recompense. It is You we worship and You we ask for help. Guide us to the straight path — the path of those upon whom You have bestowed favor, not of those who have evoked anger or of those who are astray.',
     repeat: 1,
     category: 'evening',
   ),
   AlMatsuratItem(
-    id: 3,
-    title: 'Al-Baqarah 1-5',
-    arabic:
-        'الم ﴿١﴾ ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ ﴿٢﴾ الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ ﴿٣﴾ وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ ﴿٤﴾ أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ ﴿٥﴾',
-    transliteration:
-        "Alif lām mīm. Dhālikal-kitābu lā rayba fīh, hudan lil-muttaqīn. Alladhīna yu'minūna bil-ghaybi wa yuqīmūnaṣ-ṣalāta wa mimmā razaqnāhum yunfiqūn. Walladhīna yu'minūna bimā unzila ilayka wa mā unzila min qablik, wa bil-ākhirati hum yūqinūn. Ulā'ika 'alā hudan mir-rabbihim wa ulā'ika humul-mufliḥūn.",
-    translation:
-        'Alif Lam Mim. This is the Book about which there is no doubt, a guidance for those conscious of Allah — who believe in the unseen, establish prayer, and spend out of what We have provided for them, and who believe in what has been revealed to you and what was revealed before you, and of the Hereafter they are certain. Those are upon guidance from their Lord, and it is those who are successful.',
+    id: 21,
+    title: 'QS. Al-Baqarah : 1-5',
+    arabic: 'الم ﴿١﴾ ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ ﴿٢﴾ الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ ﴿٣﴾ وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ ﴿٤﴾ أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ ﴿٥﴾',
+    transliteration: "Alif lām mīm. Dhālikal-kitābu lā rayba fīh, hudan lil-muttaqīn. Alladhīna yu'minūna bil-ghaybi wa yuqīmūnaṣ-ṣalāta wa mimmā razaqnāhum yunfiqūn. Walladhīna yu'minūna bimā unzila ilayka wa mā unzila min qablik, wa bil-ākhirati hum yūqinūn. Ulā'ika 'alā hudan mir-rabbihim wa ulā'ika humul-mufliḥūn.",
+    translation: 'Alif Lam Mim. This is the Book about which there is no doubt, a guidance for those conscious of Allah — who believe in the unseen, establish prayer, and spend out of what We have provided for them, and who believe in what has been revealed to you and what was revealed before you, and of the Hereafter they are certain. Those are upon guidance from their Lord, and it is those who are successful.',
     repeat: 1,
     category: 'evening',
   ),
   AlMatsuratItem(
-    id: 4,
-    title: 'Ayat Kursi',
-    arabic:
-        'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ',
-    transliteration:
-        "Allāhu lā ilāha illā huw, al-ḥayyul-qayyūm, lā ta'khudhuhu sinatun wa lā nawm, lahu mā fis-samāwāti wa mā fil-arḍ, man dhal-ladhī yashfa'u 'indahu illā bi'idhnih, ya'lamu mā bayna aydīhim wa khalfahum, wa lā yuḥīṭūna bishay'in min 'ilmihi illā bimā shā', wasi'a kursiyyuhus-samāwāti wal-arḍ, wa lā ya'ūdhuhu ḥifẓuhumā, wa huwal-'aliyyul-'aẓīm.",
-    translation:
-        'Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.',
+    id: 22,
+    title: 'QS. Al-Baqarah : 255 - 257',
+    arabic: 'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ ﴿٢٥٥﴾ لَا إِكْرَاهَ فِي الدِّينِ قَد تَّبَيَّنَ الرُّشْدُ مِنَ الْغَيِّ فَمَن يَكْفُرْ بِالطَّاغُوتِ وَيُؤْمِن بِاللَّهِ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقَىٰ لَا انفِصَامَ لَهَا وَاللَّهُ سَمِيعٌ عَلِيمٌ ﴿٢٥٦﴾ اللَّهُ وَلِيُّ الَّذِينَ آمَنُوا يُخْرِجُهُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ وَالَّذِينَ كَفَرُوا أَوْلِيَاؤُهُمُ الطَّاغُوتُ يُخْرِجُونَهُم مِّنَ النُّورِ إِلَى الظُّلُمَاتِ أُولَٰئِكَ أَصْحَابُ النَّارِ هُمْ فِيهَا خَالِدُونَ ﴿٢٥٧﴾',
+    transliteration: "Allāhu lā ilāha illā huw, al-ḥayyul-qayyūm, lā ta'khudhuhu sinatun wa lā nawm, lahu mā fis-samāwāti wa mā fil-arḍ, man dhal-ladhī yashfa'u 'indahu illā bi'idhnih, ya'lamu mā bayna aydīhim wa mā khalfahum, wa lā yuḥīṭūna bishay'in min 'ilmihi illā bimā shā', wasi'a kursiyyuhus-samāwāti wal-arḍ, wa lā ya'ūdhuhu ḥifẓuhumā, wa huwal-'aliyyul-'aẓīm.",
+    translation: 'Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great. There is no compulsion in religion. The right course has become clear from the wrong. So whoever disbelieves in Taghut and believes in Allah has grasped the most trustworthy handhold with no break in it. And Allah is Hearing and Knowing. Allah is the ally of those who have believed. He brings them out from darknesses into the light. And those who have disbelieved — their allies are Taghut. They take them out of the light into darknesses. Those are the companions of the Fire; they will abide eternally therein.',
     repeat: 1,
     category: 'evening',
   ),
   AlMatsuratItem(
-    id: 5,
-    title: 'Al-Baqarah 284-286',
-    arabic:
-        'لِّلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ وَإِن تُبْدُوا مَا فِي أَنفُسِكُمْ أَوْ تُخْفُوهُ يُحَاسِبْكُم بِهِ اللَّهُ فَيَغْفِرُ لِمَن يَشَاءُ وَيُعَذِّبُ مَن يَشَاءُ وَاللَّهُ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ',
-    transliteration:
-        "Lillāhi mā fis-samāwāti wa mā fil-arḍ, wa in tubdū mā fī anfusikum aw tukhfūhu yuḥāsibkum bihillāh, fayaghfiru liman yashā'u wa yu'adhdhibu man yashā', wallāhu 'alā kulli shay'in qadīr.",
-    translation:
-        'To Allah belongs whatever is in the heavens and whatever is in the earth. Whether you show what is within yourselves or conceal it, Allah will bring you to account for it. Then He will forgive whom He wills and punish whom He wills, and Allah is over all things competent.',
-    repeat: 1,
-    category: 'evening',
-  ),
-  AlMatsuratItem(
-    id: 6,
-    title: 'Al-Ikhlas',
-    arabic:
-        'قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾',
-    transliteration:
-        "Qul huwallāhu aḥad. Allāhuṣ-ṣamad. Lam yalid wa lam yūlad. Wa lam yakun lahū kufuwan aḥad.",
-    translation:
-        'Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent.',
+    id: 23,
+    title: 'QS. Al-Ikhlash : 1 – 4',
+    arabic: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾',
+    transliteration: "Bismillāhir-raḥmānir-raḥīm. Qul huwallāhu aḥad. Allāhuṣ-ṣamad. Lam yalid wa lam yūlad. Wa lam yakun lahū kufuwan aḥad.",
+    translation: 'In the name of Allah, the Entirely Merciful, the Especially Merciful. Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent.',
     repeat: 3,
     category: 'evening',
   ),
   AlMatsuratItem(
-    id: 7,
-    title: 'Al-Falaq',
-    arabic:
-        'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ﴿١﴾ مِن شَرِّ مَا خَلَقَ ﴿٢﴾ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ﴿٣﴾ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ﴿٤﴾ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ ﴿٥﴾',
-    transliteration:
-        "Qul a'ūdhu birabbil-falaq. Min sharri mā khalaq. Wa min sharri ghāsiqin idhā waqab. Wa min sharrin-naffāthāti fil-'uqad. Wa min sharri ḥāsidin idhā ḥasad.",
-    translation:
-        'Say: I seek refuge in the Lord of daybreak. From the evil of that which He created. And from the evil of darkness when it settles. And from the evil of the blowers in knots. And from the evil of an envier when he envies.',
+    id: 24,
+    title: 'QS. Al-Falaq : 1 – 5',
+    arabic: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ﴿١﴾ مِن شَرِّ مَا خَلَقَ ﴿٢﴾ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ﴿٣﴾ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ﴿٤﴾ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ ﴿٥﴾',
+    transliteration: "Bismillāhir-raḥmānir-raḥīm. Qul a'ūdhu birabbil-falaq. Min sharri mā khalaq. Wa min sharri ghāsiqin idhā waqab. Wa min sharrin-naffāthāti fil-'uqad. Wa min sharri ḥāsidin idhā ḥasad.",
+    translation: 'In the name of Allah, the Entirely Merciful, the Especially Merciful. Say: I seek refuge in the Lord of daybreak. From the evil of that which He created. And from the evil of darkness when it settles. And from the evil of the blowers in knots. And from the evil of an envier when he envies.',
     repeat: 3,
     category: 'evening',
   ),
   AlMatsuratItem(
-    id: 8,
-    title: 'An-Nas',
-    arabic:
-        'قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿١﴾ مَلِكِ النَّاسِ ﴿٢﴾ إِلَٰهِ النَّاسِ ﴿٣﴾ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿٥﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾',
-    transliteration:
-        "Qul a'ūdhu birabbin-nās. Malikin-nās. Ilāhin-nās. Min sharril-waswāsil-khannās. Alladhī yuwaswisu fī ṣudūrin-nās. Minal-jinnati wan-nās.",
-    translation:
-        'Say: I seek refuge in the Lord of mankind. The Sovereign of mankind. The God of mankind. From the evil of the retreating whisperer. Who whispers in the breasts of mankind. From among the jinn and mankind.',
+    id: 25,
+    title: 'QS. An-Nas : 1 – 6',
+    arabic: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿١﴾ مَلِكِ النَّاسِ ﴿٢﴾ إِلَٰهِ النَّاسِ ﴿٣﴾ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿٥﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾',
+    transliteration: "Bismillāhir-raḥmānir-raḥīm. Qul a'ūdhu birabbin-nās. Malikin-nās. Ilāhin-nās. Min sharril-waswāsil-khannās. Alladhī yuwaswisu fī ṣudūrin-nās. Minal-jinnati wan-nās.",
+    translation: 'In the name of Allah, the Entirely Merciful, the Especially Merciful. Say: I seek refuge in the Lord of mankind. The Sovereign of mankind. The God of mankind. From the evil of the retreating whisperer. Who whispers in the breasts of mankind. From among the jinn and mankind.',
     repeat: 3,
     category: 'evening',
   ),
   AlMatsuratItem(
-    id: 9,
-    title: 'Evening Dhikr',
-    arabic:
-        'أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
-    transliteration:
-        "Amsaynā wa amsal-mulku lillāh, walḥamdu lillāh, lā ilāha illallāhu waḥdahu lā sharīka lah, lahul-mulku wa lahul-ḥamdu wa huwa 'alā kulli shay'in qadīr.",
-    translation:
-        'We have entered a new evening and the dominion belongs to Allah. All praise is for Allah. There is no deity worthy of worship except Allah alone, with no partners. To Him belongs the dominion and all praise, and He is over all things capable.',
+    id: 26,
+    title: 'Dzikir',
+    arabic: 'أَمْسَيْنَا وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ',
+    transliteration: "Amsayna wa bihamdihi, subhanallahil 'aziim.",
+    translation: 'We have reached the evening and by Allah\'s blessing. Glory be to Allah, the Supreme.',
+    repeat: 3,
+    category: 'evening',
+  ),
+  AlMatsuratItem(
+    id: 27,
+    title: 'Dzikir',
+    arabic: 'اَسْتَغْفِرُ اللهَ الْعَظِيمَ الَّذِي لاَ إِلهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ',
+    transliteration: "Astaghfirullahhal 'adzim alladzii laa ilaaha illaa huwal hayyu al-qayyum wa atuubu ilaihi.",
+    translation: 'I seek forgiveness from Allah the Great, there is no deity but Him, the Living, the Sustainer of existence, and I repent to Him.',
+    repeat: 3,
+    category: 'evening',
+  ),
+  AlMatsuratItem(
+    id: 28,
+    title: 'Dzikir',
+    arabic: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ',
+    transliteration: "Subhanallahi wa bihamdihi, subhanallahil 'adzim.",
+    translation: 'Glory be to Allah and by His praise. Glory be to Allah, the Supreme.',
+    repeat: 10,
+    category: 'evening',
+  ),
+  AlMatsuratItem(
+    id: 29,
+    title: 'Dzikir',
+    arabic: 'لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ الْعَلِىِّ الْعَظِيمِ',
+    transliteration: "Laa haula wa laa quwwata illaa billahil 'aliyyil 'adzim.",
+    translation: 'There is no power and no strength except with Allah, the Most High, the Supreme.',
+    repeat: 3,
+    category: 'evening',
+  ),
+  AlMatsuratItem(
+    id: 30,
+    title: 'QS. Ali Imran : 26-27',
+    arabic: 'قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاءُ وَتَنزِعُ الْمُلْكَ مِمَّن تَشَاءُ وَتُعِزُّ مَن تَشَاءُ وَتُذِلُّ مَن تَشَاءُ بِيَدِكَ الْخَيْرُ إِنَّكَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ ﴿٢٦﴾ تُولِجُ اللَّيْلَ فِي النَّهَارِ وَتُولِجُ النَّهَارَ فِي اللَّيْلِ وَتُخْرِجُ الْحَيَّ مِنَ الْمَيِّتِ وَتُخْرِجُ الْمَيِّتَ مِنَ الْحَيِّ وَتَرْزُقُ مَن تَشَاءُ بِغَيْرِ حِسَابٍ ﴿٢٧﴾',
+    transliteration: "Qulillahumma malikal mulki tu'til mulka man tasha'u wa tanzi'ul mulka mimman tasha'u wa tu'izzu man tasha'u wa tudhillu man tasha'u biyadikal khayru innaka 'ala kulli syai-in qadir.",
+    translation: 'Say: O Allah, Owner of Sovereignty, You give sovereignty to whom You will and You take sovereignty away from whom You will. You honor whom You will and You humble whom You will. In Your hand is all good. Indeed, You are over all things competent. You cause the night to enter into the day and You cause the day to enter into the night. You bring the living out of the dead and You bring the dead out of the living. And You give provision to whom You will without account.',
     repeat: 1,
     category: 'evening',
   ),
   AlMatsuratItem(
-    id: 10,
-    title: 'Sayyidul Istighfar',
-    arabic:
-        'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ',
-    transliteration:
-        "Allāhumma anta rabbī lā ilāha illā ant, khalaqtanī wa ana 'abduk, wa ana 'alā 'ahdika wa wa'dika mastata't, a'ūdhu bika min sharri mā ṣana't, abū'u laka bini'matika 'alayya wa abū'u bidhanbī faghfir lī fa'innahū lā yaghfirudh-dhunūba illā ant.",
-    translation:
-        'O Allah, You are my Lord. There is no deity worthy of worship except You. You created me and I am Your servant, and I am upon Your covenant and promise as best I can. I seek refuge in You from the evil of what I have done. I acknowledge Your favor upon me and I acknowledge my sin, so forgive me, for indeed none forgives sins except You.',
+    id: 31,
+    title: 'Dzikir',
+    arabic: 'اللَّهُمَّ إِنَّ هَذَا إِقْبَالُ لَيْلِكَ، وَإِدْبَارُ نَهَارِكَ، وَأَصْوَاتُ دُعَاتِكَ، فَاغْفِرْ لِي',
+    transliteration: "Allaahumma inna haadzaa iqbalu lailika, wa idbaru nahaarika, wa ashwaatu du'aatika, faghfirlii.",
+    translation: 'O Allah, this is the coming of Your night and the going of Your day, and the voices of Your callers, so forgive me.',
+    repeat: 1,
+    category: 'evening',
+  ),
+  AlMatsuratItem(
+    id: 32,
+    title: 'Doa Rabithah',
+    arabic: 'اللَّهُمَّ إِنَّكَ تَعْلَمُ أَنَّ هَذِهِ الْقُلُوبَ قَدِ اجْتَمَعَتْ عَلَىٰ مَحَبَّتِكَ وَالتَّقَتْ عَلَىٰ طَاعَتِكَ وَتَوَاحَدَتْ عَلَىٰ دَعْوَتِكَ وَتَعَاهَدَتْ عَلَىٰ نُصْرَةِ شَرِيعَتِكَ فَوَاثِقِ اللَّهُمَّ رَابِطَتَهَا وَأَدِمْ وُدَّهَا وَاهْدِهَا سُبُلَهَا وَامْلَأْهَا بِنُورِكَ الَّذِي لَا يَخْبُو وَلَا صَرِح صُدُورَهَا بِفَيْضِ الْإِيمَانِ بِكَ وَجَمِيلِ التَّوَكُّلِ عَلَيْكَ وَأَحْيِهَا بِمَعْرِفَتِكَ وَأَمِتْهَا عَلَىٰ الشَّهَادَةِ فِي سَبِيلِكَ إِنَّكَ نِعْمَ الْمَوْلَىٰ وَنِعْمَ النَّصِيرُ',
+    transliteration: "Allaahumma innaka ta'lamu anna haadzihil quluuba qadijtama'at 'alaa makhabbatika wal taqat 'alaa thaa'atika wa tawahhadat 'alaa daawatika wa ta'aahadat 'alaa nuhrati syari'atika fawatsiqillahumma raabithatahaa wa adhim wuddahaa wahdihaa subulaaha wamla'aha binuurikalladzii layakhbuu wasrah shuduurahaa bifaidil iimaanibika wa jamiilittawakulli 'alaika wa ahyihaa bimarifatika wa amit-haa 'alasy-syahadati fi sabiilika innaka ni'mal maula wa ni'mannashiir.",
+    translation: 'O Allah, You know that these hearts have gathered in love for You, have met in obedience to You, have united in calling to You, and have pledged to support Your law. So strengthen their bond, O Allah, preserve their affection, guide them to their paths, and fill them with Your light that never dims. Expand their chests with the overflow of faith in You and the beauty of trust in You, give them life through Your knowledge, and grant them death while witnessing for Your sake. Indeed, You are the best guardian and the best helper.',
+    repeat: 1,
+    category: 'evening',
+  ),
+  AlMatsuratItem(
+    id: 33,
+    title: 'Jeda',
+    arabic: '',
+    transliteration: '',
+    translation: '',
+    repeat: 1,
+    category: 'evening',
+  ),
+  AlMatsuratItem(
+    id: 34,
+    title: 'Shalawat & Doa',
+    arabic: 'اللَّهُمَّ آمِينَ ، وَصَلِّ اللَّهُمَّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ',
+    transliteration: "Allaahumma aamin, wa shalillahumma 'ala sayyidina muhammadin wa 'ala aalihi wa shahbihi wa sallim.",
+    translation: 'O Allah, amen. And may Allah\'s blessings be upon our master Muhammad and upon his family and companions.',
     repeat: 1,
     category: 'evening',
   ),

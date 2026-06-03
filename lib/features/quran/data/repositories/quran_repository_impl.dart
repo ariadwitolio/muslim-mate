@@ -11,4 +11,9 @@ class QuranRepositoryImpl implements QuranRepository {
   Future<SurahDetail> fetchSurahDetail(int number) {
     return remoteDataSource.fetchSurahDetail(number);
   }
+
+  @override
+  Future<List<SurahDetail>> fetchJuzDetail(int juzNumber) {
+    return remoteDataSource.fetchJuzDetail(juzNumber);
+  }
 }

@@ -8,6 +8,7 @@ import 'package:muslim_mate/features/quran/data/models/surah_model.dart';
 import 'package:muslim_mate/features/quran/presentation/cubit/quran_cubit.dart';
 import 'package:muslim_mate/features/quran/presentation/cubit/quran_state.dart';
 import 'package:muslim_mate/features/quran/presentation/pages/surah_detail_page.dart';
+import 'package:muslim_mate/features/quran/presentation/pages/juz_detail_page.dart';
 
 class QuranScreen extends StatefulWidget {
   const QuranScreen({super.key});
@@ -27,14 +28,38 @@ class _QuranScreenState extends State<QuranScreen> {
   static const Color _kBadge = Color(0xFF0F8D93);
 
   final TextEditingController _searchController = TextEditingController();
-  final List<JuzItem> _juzItems = List.generate(
-    30,
-    (index) => JuzItem(
-      number: index + 1,
-      startSurah: 'Al-Fatihah',
-      startAyat: 'Ayat 1',
-    ),
-  );
+  final List<JuzItem> _juzItems = [
+    JuzItem(number: 1, startSurah: 'Al-Fatihah', startAyat: '1', endSurah: 'Al-Baqarah', endAyat: '141'),
+    JuzItem(number: 2, startSurah: 'Al-Baqarah', startAyat: '142', endSurah: 'Al-Baqarah', endAyat: '252'),
+    JuzItem(number: 3, startSurah: 'Al-Baqarah', startAyat: '253', endSurah: 'Ali \'Imran', endAyat: '92'),
+    JuzItem(number: 4, startSurah: 'Ali \'Imran', startAyat: '93', endSurah: 'An-Nisa', endAyat: '23'),
+    JuzItem(number: 5, startSurah: 'An-Nisa', startAyat: '24', endSurah: 'An-Nisa', endAyat: '147'),
+    JuzItem(number: 6, startSurah: 'An-Nisa', startAyat: '148', endSurah: 'Al-Ma\'idah', endAyat: '81'),
+    JuzItem(number: 7, startSurah: 'Al-Ma\'idah', startAyat: '82', endSurah: 'Al-An\'am', endAyat: '110'),
+    JuzItem(number: 8, startSurah: 'Al-An\'am', startAyat: '111', endSurah: 'Al-A\'raf', endAyat: '87'),
+    JuzItem(number: 9, startSurah: 'Al-A\'raf', startAyat: '88', endSurah: 'Al-Anfal', endAyat: '40'),
+    JuzItem(number: 10, startSurah: 'Al-Anfal', startAyat: '41', endSurah: 'At-Tawbah', endAyat: '92'),
+    JuzItem(number: 11, startSurah: 'At-Tawbah', startAyat: '93', endSurah: 'Hud', endAyat: '5'),
+    JuzItem(number: 12, startSurah: 'Hud', startAyat: '6', endSurah: 'Yusuf', endAyat: '52'),
+    JuzItem(number: 13, startSurah: 'Yusuf', startAyat: '53', endSurah: 'Ibrahim', endAyat: '52'),
+    JuzItem(number: 14, startSurah: 'Al-Hijr', startAyat: '1', endSurah: 'An-Nahl', endAyat: '128'),
+    JuzItem(number: 15, startSurah: 'Al-Isra', startAyat: '1', endSurah: 'Al-Kahf', endAyat: '74'),
+    JuzItem(number: 16, startSurah: 'Al-Kahf', startAyat: '75', endSurah: 'Ta-Ha', endAyat: '135'),
+    JuzItem(number: 17, startSurah: 'Al-Anbiya', startAyat: '1', endSurah: 'Al-Hajj', endAyat: '78'),
+    JuzItem(number: 18, startSurah: 'Al-Mu\'minun', startAyat: '1', endSurah: 'Al-Furqan', endAyat: '20'),
+    JuzItem(number: 19, startSurah: 'Al-Furqan', startAyat: '21', endSurah: 'An-Naml', endAyat: '55'),
+    JuzItem(number: 20, startSurah: 'An-Naml', startAyat: '56', endSurah: 'Al-Ankabut', endAyat: '45'),
+    JuzItem(number: 21, startSurah: 'Al-Ankabut', startAyat: '46', endSurah: 'Al-Ahzab', endAyat: '30'),
+    JuzItem(number: 22, startSurah: 'Al-Ahzab', startAyat: '31', endSurah: 'Ya-Sin', endAyat: '27'),
+    JuzItem(number: 23, startSurah: 'Ya-Sin', startAyat: '28', endSurah: 'Az-Zumar', endAyat: '31'),
+    JuzItem(number: 24, startSurah: 'Az-Zumar', startAyat: '32', endSurah: 'Fussilat', endAyat: '46'),
+    JuzItem(number: 25, startSurah: 'Fussilat', startAyat: '47', endSurah: 'Al-Jathiyah', endAyat: '37'),
+    JuzItem(number: 26, startSurah: 'Al-Ahqaf', startAyat: '1', endSurah: 'Adh-Dhariyat', endAyat: '30'),
+    JuzItem(number: 27, startSurah: 'Adh-Dhariyat', startAyat: '31', endSurah: 'Al-Hadid', endAyat: '29'),
+    JuzItem(number: 28, startSurah: 'Al-Mujadilah', startAyat: '1', endSurah: 'At-Tahrim', endAyat: '12'),
+    JuzItem(number: 29, startSurah: 'Al-Mulk', startAyat: '1', endSurah: 'Al-Mursalat', endAyat: '50'),
+    JuzItem(number: 30, startSurah: 'An-Naba', startAyat: '1', endSurah: 'An-Nas', endAyat: '6'),
+  ];
 
   @override
   void initState() {
@@ -141,9 +166,9 @@ class _QuranScreenState extends State<QuranScreen> {
                   children: [
                     _buildSearchRow(),
                     const SizedBox(height: 8),
-                    _buildTabBar(state),
+                    _buildTabBar(context, state),
                     const SizedBox(height: 10),
-                    Expanded(child: _buildTabContent(state, cubit)),
+                    Expanded(child: _buildTabContent(context, state, cubit)),
                   ],
                 ),
               ),
@@ -193,7 +218,7 @@ class _QuranScreenState extends State<QuranScreen> {
     );
   }
 
-  Widget _buildTabBar(QuranState state) {
+  Widget _buildTabBar(BuildContext context, QuranState state) {
     return Container(
       height: 52,
       decoration: BoxDecoration(
@@ -204,19 +229,19 @@ class _QuranScreenState extends State<QuranScreen> {
       padding: const EdgeInsets.all(4),
       child: Row(
         children: [
-          Expanded(child: _buildTabItem('Surah', 0, state: state)),
+          Expanded(child: _buildTabItem(context, 'Surah', 0, state: state)),
           const SizedBox(width: 8),
-          Expanded(child: _buildTabItem('Juz', 1, state: state)),
+          Expanded(child: _buildTabItem(context, 'Juz', 1, state: state)),
           const SizedBox(width: 8),
           Expanded(
-            child: _buildTabItem('Last Read', 2, icon: Iconsax.clock, state: state),
+            child: _buildTabItem(context, 'Last Read', 2, icon: Iconsax.clock, state: state),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildTabItem(String label, int index, {IconData? icon, required QuranState state}) {
+  Widget _buildTabItem(BuildContext context, String label, int index, {IconData? icon, required QuranState state}) {
     final selected = state.selectedTabIndex == index;
     return GestureDetector(
       onTap: () => context.read<QuranCubit>().setSelectedTab(index),
@@ -255,10 +280,10 @@ class _QuranScreenState extends State<QuranScreen> {
     );
   }
 
-  Widget _buildTabContent(QuranState state, QuranCubit cubit) {
+  Widget _buildTabContent(BuildContext context, QuranState state, QuranCubit cubit) {
     switch (state.selectedTabIndex) {
       case 1:
-        return _buildJuzList();
+        return _buildJuzList(context, state, cubit);
       case 2:
         return _buildLastReadTab(state);
       default:
@@ -449,71 +474,59 @@ class _QuranScreenState extends State<QuranScreen> {
     );
   }
 
-  Widget _buildJuzList() {
+  Widget _buildJuzList(BuildContext context, QuranState state, QuranCubit cubit) {
     return ListView.separated(
       physics: const BouncingScrollPhysics(),
       itemCount: _juzItems.length,
-      separatorBuilder: (context, _) => const SizedBox(height: 12),
-      itemBuilder: (context, index) {
+      separatorBuilder: (context, _) =>
+          const Divider(height: 1, thickness: 1, color: Color(0xFFE6EBF1)),
+      itemBuilder: (itemContext, index) {
         final item = _juzItems[index];
-        return Container(
-          decoration: BoxDecoration(
-            color: _kSurface,
+        return Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () {
+              Navigator.of(itemContext).push(
+                MaterialPageRoute(
+                  builder: (_) => JuzDetailScreen(juzNumber: item.number),
+                ),
+              );
+            },
             borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: _kBorder),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-          child: Row(
-            children: [
-              Container(
-                width: 56,
-                height: 56,
-                decoration: BoxDecoration(
-                  color: _kBackground,
-                  borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: _kBorder),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  'J${item.number}',
-                  style: _jakarta(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
-                    color: _kTextPrimary,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 14),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  HexagonBadge(number: item.number, color: _kBadge),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Juz ${item.number}',
+                          style: _jakarta(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: _kTextPrimary,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          '${item.startSurah}: ${item.startAyat} - ${item.endSurah}: ${item.endAyat}',
+                          style: _jakarta(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                            color: _kTextSecondary,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+                ],
               ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.startSurah,
-                      style: _jakarta(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: _kTextPrimary,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      item.startAyat,
-                      style: _jakarta(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
-                        color: _kTextSecondary,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Icon(
-                Iconsax.arrow_right_3,
-                size: 16,
-                color: _kTextSecondary,
-              ),
-            ],
+            ),
           ),
         );
       },
@@ -584,11 +597,15 @@ class JuzItem {
   final int number;
   final String startSurah;
   final String startAyat;
+  final String endSurah;
+  final String endAyat;
 
   JuzItem({
     required this.number,
     required this.startSurah,
     required this.startAyat,
+    required this.endSurah,
+    required this.endAyat,
   });
 }
 
