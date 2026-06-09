@@ -22,37 +22,46 @@ class HomeBottomNavigation extends StatelessWidget {
           color: HomeColors.surface,
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _NavigationItem(
-                icon: Iconsax.home_2,
-                label: 'Home',
-                active: currentIndex == 0,
-                onTap: () => onTap(0),
+              Expanded(
+                child: _NavigationItem(
+                  icon: Iconsax.home_2,
+                  label: 'Home',
+                  active: currentIndex == 0,
+                  onTap: () => onTap(0),
+                ),
               ),
-              _NavigationItem(
-                icon: Iconsax.book_saved,
-                label: 'Al-Ma\'tsurat',
-                active: currentIndex == 1,
-                onTap: () => onTap(1),
+              Expanded(
+                child: _NavigationItem(
+                  icon: Iconsax.book_saved,
+                  label: 'Al-Ma\'tsurat',
+                  active: currentIndex == 1,
+                  onTap: () => onTap(1),
+                ),
               ),
-              _NavigationItem(
-                icon: Iconsax.book_1,
-                label: 'Quran',
-                active: currentIndex == 2,
-                onTap: () => onTap(2),
+              Expanded(
+                child: _NavigationItem(
+                  icon: Iconsax.book_1,
+                  label: 'Al-Quran',
+                  active: currentIndex == 2,
+                  onTap: () => onTap(2),
+                ),
               ),
-              _NavigationItem(
-                icon: Iconsax.clock,
-                label: 'Prayer',
-                active: currentIndex == 3,
-                onTap: () => onTap(3),
+              Expanded(
+                child: _NavigationItem(
+                  icon: Iconsax.clock,
+                  label: 'Prayer Time',
+                  active: currentIndex == 3,
+                  onTap: () => onTap(3),
+                ),
               ),
-              _NavigationItem(
-                icon: Iconsax.profile_circle,
-                label: 'Profile',
-                active: currentIndex == 4,
-                onTap: () => onTap(4),
+              Expanded(
+                child: _NavigationItem(
+                  icon: Iconsax.profile_circle,
+                  label: 'Profile',
+                  active: currentIndex == 4,
+                  onTap: () => onTap(4),
+                ),
               ),
             ],
           ),

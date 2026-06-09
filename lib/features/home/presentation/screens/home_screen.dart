@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:muslim_mate/core/services/injection.dart';
 import 'package:muslim_mate/core/theme/app_colors.dart';
 import 'package:muslim_mate/core/theme/app_text_styles.dart';
 import 'package:muslim_mate/features/home/presentation/widgets/home_daily_activity_section.dart';
@@ -14,9 +13,7 @@ import 'package:muslim_mate/features/home/presentation/widgets/home_last_read_ca
 import 'package:muslim_mate/features/home/presentation/widgets/home_prayer_time_chip.dart';
 import 'package:muslim_mate/features/home/presentation/widgets/home_shortcut_action_card.dart';
 import 'package:intl/intl.dart';
-import 'package:muslim_mate/features/prayer/data/sources/location_data_source.dart';
 import 'package:muslim_mate/features/prayer/domain/entities/prayer_timing.dart';
-import 'package:muslim_mate/features/prayer/domain/repositories/prayer_repository.dart';
 import 'package:muslim_mate/features/prayer/presentation/cubit/prayer_cubit.dart';
 import 'package:muslim_mate/features/prayer/presentation/cubit/prayer_state.dart';
 
@@ -30,32 +27,38 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   DateTime _currentTime = DateTime.now();
   Timer? _timer;
-  late final PrayerCubit _prayerCubit;
+  late PrayerCubit _prayerCubit;
   late final AnimationController _shimmerController;
   final ScrollController _prayerScrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    _prayerCubit = PrayerCubit(
-      sl<PrayerRepository>(),
-      sl<LocationDataSource>(),
-    );
     _shimmerController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1200),
     )..repeat();
     _startTimer();
-    _prayerCubit.loadPrayerTimes();
   }
 
   @override
   void dispose() {
     _timer?.cancel();
-    _prayerCubit.close();
     _prayerScrollController.dispose();
     _shimmerController.dispose();
     super.dispose();
+  }
+
+  var _prayerCubitInitialized = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_prayerCubitInitialized) {
+      _prayerCubit = BlocProvider.of<PrayerCubit>(context);
+      _prayerCubit.loadPrayerTimes();
+      _prayerCubitInitialized = true;
+    }
   }
 
   void _startTimer() {
@@ -329,17 +332,19 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 }
 
   Widget _buildPrayerTimeCards(List<PrayerTiming> prayerTimings, PrayerTiming? currentPrayer) {
+    final displayList = _ensureSubuhBetweenImsakAndFajr(prayerTimings);
+
     return SingleChildScrollView(
       controller: _prayerScrollController,
       scrollDirection: Axis.horizontal,
       physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
-        children: prayerTimings.map((timing) {
+        children: displayList.map((timing) {
           final active = currentPrayer?.name == timing.name;
           return Padding(
             padding: const EdgeInsets.only(right: 10),
-              child: HomePrayerTimeChip(
+            child: HomePrayerTimeChip(
               title: timing.name,
               time: timing.displayTime,
               icon: Icons.access_time,
@@ -349,6 +354,42 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         }).toList(),
       ),
     );
+  }
+
+  List<PrayerTiming> _ensureSubuhBetweenImsakAndFajr(List<PrayerTiming> prayerTimings) {
+    // Create a mutable copy
+    final list = List<PrayerTiming>.from(prayerTimings);
+    final idxImsak = list.indexWhere((p) => p.name.toLowerCase() == 'imsak');
+    final idxFajr = list.indexWhere((p) => p.name.toLowerCase() == 'fajr');
+    final idxSubuh = list.indexWhere((p) => p.name.toLowerCase() == 'subuh');
+
+    if (idxImsak >= 0 && idxFajr > idxImsak) {
+      // If Subuh already exists, ensure it's between Imsak and Fajr
+      if (idxSubuh >= 0) {
+        if (!(idxSubuh > idxImsak && idxSubuh < idxFajr)) {
+          final sub = list.removeAt(idxSubuh);
+          final insertAt = idxImsak + 1;
+          list.insert(insertAt, sub);
+        }
+      } else {
+        // Insert a Subuh timing just before Fajr (use Fajr time minus 10 minutes but not before Imsak)
+        final fajr = list[idxFajr];
+        var subuhDate = fajr.dateTime.subtract(const Duration(minutes: 10));
+        final imsakDate = list[idxImsak].dateTime;
+        if (subuhDate.isBefore(imsakDate.add(const Duration(minutes: 1)))) {
+          // Keep it at least 1 minute after imsak
+          subuhDate = imsakDate.add(const Duration(minutes: 1));
+        }
+        final subuh = PrayerTiming(
+          name: 'Subuh',
+          displayTime: DateFormat('HH:mm').format(subuhDate),
+          dateTime: subuhDate,
+        );
+        list.insert(idxImsak + 1, subuh);
+      }
+    }
+
+    return list;
   }
 
   Widget _buildPrayerTimeSkeletons() {

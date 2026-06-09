@@ -146,7 +146,7 @@ class _QuranScreenState extends State<QuranScreen> {
               titleSpacing: 20,
               toolbarHeight: 60,
               title: Text(
-                'Al Quran',
+                'Al-Quran',
                 style: _jakarta(
                   fontSize: 22,
                   fontWeight: FontWeight.w700,

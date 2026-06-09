@@ -19,6 +19,12 @@ class DzikirCubit extends Cubit<DzikirState> {
 
   void selectTab(int index) {
     if (state.selectedTabIndex == index) return;
-    emit(state.copyWith(selectedTabIndex: index));
+    // switching primary tab resets variant to Sughro (index 0)
+    emit(state.copyWith(selectedTabIndex: index, selectedVariantIndex: 0));
+  }
+
+  void selectVariant(int index) {
+    if (state.selectedVariantIndex == index) return;
+    emit(state.copyWith(selectedVariantIndex: index));
   }
 }

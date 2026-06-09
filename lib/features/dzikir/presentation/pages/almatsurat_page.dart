@@ -8,12 +8,12 @@ import 'package:muslim_mate/features/dzikir/presentation/cubit/dzikir_cubit.dart
 import 'package:muslim_mate/features/dzikir/presentation/cubit/dzikir_state.dart';
 
 const Color _kBackground = Color(0xFFFFFFFF);
-const Color _kSectionBackground = Color(0xFFF4F7FB);
-const Color _kBorder = Color(0xFFE6EBF1);
 const Color _kTextPrimary = Color(0xFF111827);
 const Color _kTextSecondary = Color(0xFF6B7280);
 const Color _kTabSelected = Color(0xFF0F8D93);
 const Color _kDivider = Color(0xFFF1F5F9);
+const List<String> _kCategoryLabels = ['Morning', 'Evening'];
+const List<String> _kVariantLabels = ['Sughro', 'Kubro'];
 
 class AlMatsuratScreen extends StatefulWidget {
   const AlMatsuratScreen({super.key});
@@ -23,6 +23,25 @@ class AlMatsuratScreen extends StatefulWidget {
 }
 
 class _AlMatsuratScreenState extends State<AlMatsuratScreen> {
+  final ScrollController _listController = ScrollController();
+  late int _prevTabIndex;
+  late int _prevVariantIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    final cubit = DzikirCubit(sl<DzikirRepository>());
+    // initialize previous indices from cubit initial state
+    _prevTabIndex = cubit.state.selectedTabIndex;
+    _prevVariantIndex = cubit.state.selectedVariantIndex;
+    cubit.close();
+  }
+
+  @override
+  void dispose() {
+    _listController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return BlocProvider<DzikirCubit>(
@@ -55,42 +74,62 @@ class _AlMatsuratScreenState extends State<AlMatsuratScreen> {
           ),
         ),
         body: SafeArea(
-          child: BlocBuilder<DzikirCubit, DzikirState>(
-            builder: (context, state) {
-              return Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
-                    child: _buildTabBar(state.selectedTabIndex, context),
-                  ),
-                  const SizedBox(height: 10),
-                  Expanded(
-                    child: ListView.separated(
-                      padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
-                      itemCount: state.currentItems.length,
-                      separatorBuilder: (context, index) {
-                        final nextItem = state.currentItems[index + 1];
-                        if (nextItem.arabic.isEmpty) {
-                          return const SizedBox(height: 24);
-                        }
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          child: Divider(
-                            color: _kDivider,
-                            thickness: 1,
-                            height: 1,
-                          ),
-                        );
-                      },
-                      itemBuilder: (context, index) {
-                        final item = state.currentItems[index];
-                        return _buildItemContent(item);
-                      },
-                    ),
-                  ),
-                ],
-              );
+          child: BlocListener<DzikirCubit, DzikirState>(
+            listener: (context, state) {
+              // when primary tab or variant changes, scroll list to top
+              if (state.selectedTabIndex != _prevTabIndex) {
+                _listController.animateTo(0, duration: const Duration(milliseconds: 250), curve: Curves.easeOut);
+                _prevTabIndex = state.selectedTabIndex;
+                // variant is reset in cubit when primary tab changes; update prev
+                _prevVariantIndex = state.selectedVariantIndex;
+              } else if (state.selectedVariantIndex != _prevVariantIndex) {
+                _listController.animateTo(0, duration: const Duration(milliseconds: 250), curve: Curves.easeOut);
+                _prevVariantIndex = state.selectedVariantIndex;
+              }
             },
+            child: BlocBuilder<DzikirCubit, DzikirState>(
+              builder: (context, state) {
+                return Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
+                      child: _buildPrimaryTabBar(state.selectedTabIndex, context),
+                    ),
+                    const SizedBox(height: 10),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: _buildVariantTabBar(state.selectedVariantIndex, context),
+                    ),
+                    const SizedBox(height: 10),
+                    Expanded(
+                      child: ListView.separated(
+                        controller: _listController,
+                        padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
+                        itemCount: state.currentItems.length,
+                        separatorBuilder: (context, index) {
+                          final nextItem = state.currentItems[index + 1];
+                          if (nextItem.arabic.isEmpty) {
+                            return const SizedBox(height: 24);
+                          }
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            child: Divider(
+                              color: _kDivider,
+                              thickness: 1,
+                              height: 1,
+                            ),
+                          );
+                        },
+                        itemBuilder: (context, index) {
+                          final item = state.currentItems[index];
+                          return _buildItemContent(item);
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),
@@ -123,37 +162,37 @@ class _AlMatsuratScreenState extends State<AlMatsuratScreen> {
     );
   }
 
-  Widget _buildTabBar(int selectedTabIndex, BuildContext context) {
+  Widget _buildPrimaryTabBar(int selectedTabIndex, BuildContext context) {
     return Container(
       height: 52,
       decoration: BoxDecoration(
-        color: _kSectionBackground,
+        color: const Color(0xFFF4F7FB),
         borderRadius: BorderRadius.circular(28),
-        border: Border.all(color: _kSectionBackground),
+        border: Border.all(color: const Color(0xFFF4F7FB)),
       ),
       padding: const EdgeInsets.all(4),
       child: Row(
-        children: [
-          Expanded(
-            child: _buildTabItem('Morning', 0, selectedTabIndex == 0, context),
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: _buildTabItem('Evening', 1, selectedTabIndex == 1, context),
-          ),
-        ],
+        children: List.generate(_kCategoryLabels.length, (index) {
+          final selected = selectedTabIndex == index;
+          return Expanded(
+            child: _buildPrimaryTabItem(
+              label: _kCategoryLabels[index],
+              selected: selected,
+              onTap: () => context.read<DzikirCubit>().selectTab(index),
+            ),
+          );
+        }),
       ),
     );
   }
 
-  Widget _buildTabItem(
-    String label,
-    int index,
-    bool selected,
-    BuildContext context,
-  ) {
+  Widget _buildPrimaryTabItem({
+    required String label,
+    required bool selected,
+    required VoidCallback onTap,
+  }) {
     return GestureDetector(
-      onTap: () => context.read<DzikirCubit>().selectTab(index),
+      onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         height: 44,
@@ -162,6 +201,7 @@ class _AlMatsuratScreenState extends State<AlMatsuratScreen> {
           borderRadius: BorderRadius.circular(20),
         ),
         alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Text(
           label,
           style: _jakarta(
@@ -170,6 +210,61 @@ class _AlMatsuratScreenState extends State<AlMatsuratScreen> {
             color: selected ? Colors.white : _kTextSecondary,
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildVariantTabBar(int selectedVariantIndex, BuildContext context) {
+    return Container(
+      height: 52,
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: const Color(0xFFE5E7EB), width: 1)),
+      ),
+      child: Row(
+        children: List.generate(_kVariantLabels.length, (index) {
+          final selected = selectedVariantIndex == index;
+          return Expanded(
+            child: _buildVariantTabItem(
+              label: _kVariantLabels[index],
+              selected: selected,
+              onTap: () => context.read<DzikirCubit>().selectVariant(index),
+            ),
+          );
+        }),
+      ),
+    );
+  }
+
+  
+
+  Widget _buildVariantTabItem({
+    required String label,
+    required bool selected,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Center(
+              child: Text(
+                label,
+                style: _jakarta(
+                  fontSize: 14,
+                  fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+                  color: selected ? _kTabSelected : _kTextSecondary,
+                ),
+              ),
+            ),
+          ),
+          Container(
+            height: 2,
+            color: selected ? _kTabSelected : Colors.transparent,
+          ),
+        ],
       ),
     );
   }
@@ -183,16 +278,33 @@ class _AlMatsuratScreenState extends State<AlMatsuratScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        // Title
+        // Title with repeat count inline (e.g. "Ta'awudz (1x)")
         Padding(
           padding: const EdgeInsets.only(bottom: 12),
-          child: Text(
-            item.title,
-            style: _jakarta(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: _kTextSecondary,
-            ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Text(
+                  item.title,
+                  style: _jakarta(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: _kTextSecondary,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Text(
+                '(${item.repeat}x)',
+                style: _jakarta(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: _kTabSelected,
+                ),
+              ),
+            ],
           ),
         ),
         // Arabic text - right aligned
@@ -228,16 +340,6 @@ class _AlMatsuratScreenState extends State<AlMatsuratScreen> {
           ).copyWith(height: 1.6),
         ),
         const SizedBox(height: 12),
-        // Repeat count
-        Text(
-          'Read ${item.repeat}x',
-          textAlign: TextAlign.left,
-          style: _jakarta(
-            fontSize: 13,
-            fontWeight: FontWeight.w600,
-            color: _kTabSelected,
-          ),
-        ),
       ],
     );
   }
